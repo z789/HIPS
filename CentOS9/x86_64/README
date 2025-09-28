@@ -10,18 +10,18 @@ apptable是面向企业的Linux系统上的轻量级主机入侵防御系统(HIP
 4. 阻止对特定的（恶意）域名解析。
 5. 阻止向特定的（恶意）地址（ipv4和ipv6)发起网络连接、收发数据。
 
-一： 安装和卸载
+一： 安装、升级和卸载
    1：获取安装包。
       1）从官方提供的地址下载安装包，并校验完整性。
       2）从官方服务人员处获取定制的安装包，并校验完整性。
 
       例如：获取的CentOS9系统上的安装包文件如下：
-      apptable_v0.5.0_el9_x86_64_cc7b0bd_2025-06-26-22-13-52.tgz SHA1SUM
+      apptable_v0.5.2_el9_x86_64_747a223_2025-09-25-10-49-51.tgz SHA1SUM
 
       使用以下命令校验完整性：
       sha1sum -c SHA1SUM
       输出以下类似内容，即合法：
-      apptable_v0.5.0_el9_x86_64_cc7b0bd_2025-06-26-22-13-52.tgz: 成功
+      apptable_v0.5.2_el9_x86_64_747a223_2025-09-25-10-49-51.tgz: 成功
 
    2. 安装apptable
 
@@ -29,7 +29,7 @@ apptable是面向企业的Linux系统上的轻量级主机入侵防御系统(HIP
       sudo tar -C / -zxvf  安装包
       
       例如：
-      sudo tar -C / -zxvf apptable_v0.5.0_el9_x86_64_cc7b0bd_2025-06-26-22-13-52.tgz  
+      sudo tar -C / -zxvf apptable_v0.5.2_el9_x86_64_747a223_2025-09-25-10-49-51.tgz
       执行完成后， 生成/opt/apptable目录，apptable所有的文件在该目录下。
 
    3. 卸载apptable
@@ -37,6 +37,19 @@ apptable是面向企业的Linux系统上的轻量级主机入侵防御系统(HIP
 
       例如：
       sudo rm -rf /opt/apptable
+
+   4. 升级apptable
+
+      先解压新安装包：
+      sudo tar -C / -zxvf  新安装包
+      然后重启apptable:
+      sudo /opt/apptable/restart.sh
+
+      
+      例如：
+      sudo tar -C / -zxvf apptable_v0.5.2_el9_x86_64_747a223_2025-09-25-10-49-51.tgz
+      sudo /opt/apptable/restart.sh
+
 
 二： 启动、停止、重启 apptable
      对apptable的所有操作都需要root权限。

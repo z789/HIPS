@@ -10,18 +10,18 @@ apptable是面向企业的Linux系统上的轻量级主机入侵防御系统(HIP
 4. 阻止对特定的（恶意）域名解析。
 5. 阻止向特定的（恶意）地址（ipv4和ipv6)发起网络连接、收发数据。
 
-一： 安装和卸载
+一： 安装、升级和卸载
    1：获取安装包。
       1）从官方提供的地址下载安装包，并校验完整性。
       2）从官方服务人员处获取定制的安装包，并校验完整性。
 
       例如：获取的Ubuntu22.04系统上的安装包文件如下：
-      apptable_v0.5.0_Ubuntu22.04_x86_64_d2f2659_2025-05-21-21-01-05.tgz  SHA1SUM
+      apptable_v0.5.2_Ubuntu22.04_x86_64_58a43b6_2025-09-25-17-32-19.tgz SHA1SUM
 
       使用以下命令校验完整性：
       sha1sum -c SHA1SUM
       输出以下类似内容，即合法：
-      apptable_v0.5.0_Ubuntu22.04_x86_64_d2f2659_2025-05-21-21-01-05.tgz: 成功
+      apptable_v0.5.2_Ubuntu22.04_x86_64_58a43b6_2025-09-25-17-32-19.tgz: 成功
 
    2. 安装apptable
 
@@ -29,7 +29,7 @@ apptable是面向企业的Linux系统上的轻量级主机入侵防御系统(HIP
       sudo tar -C / -zxvf  安装包
       
       例如：
-      sudo tar -C / -zxvf apptable_v0.5.0_Ubuntu22.04_x86_64_d2f2659_2025-05-21-21-01-05.tgz 
+      sudo tar -C / -zxvf apptable_v0.5.2_Ubuntu22.04_x86_64_58a43b6_2025-09-25-17-32-19.tgz
       执行完成后， 生成/opt/apptable目录，apptable所有的文件在该目录下。
 
    3. 卸载apptable
@@ -37,6 +37,19 @@ apptable是面向企业的Linux系统上的轻量级主机入侵防御系统(HIP
 
       例如：
       sudo rm -rf /opt/apptable
+
+   4. 升级apptable
+
+      先解压新安装包：
+      sudo tar -C / -zxvf  新安装包
+      然后重启apptable:
+      sudo /opt/apptable/restart.sh
+
+      
+      例如：
+      sudo tar -C / -zxvf apptable_v0.5.2_Ubuntu22.04_x86_64_58a43b6_2025-09-25-17-32-19.tgz
+      sudo /opt/apptable/restart.sh
+
 
 二： 启动、停止、重启 apptable
      对apptable的所有操作都需要root权限。
@@ -208,130 +221,8 @@ apptable是面向企业的Linux系统上的轻量级主机入侵防御系统(HIP
      
 
 七： 支持的操作系统和内核版本
-     目前支持Ubuntu22.04和Ubuntu24.04的generic类内核安装包。
-     generic类内核安装包是使用最多的安装包。
- 
-    1.  Ubuntu22.04 *generic类以下89个内核安装包                 内核版本
-    linux-image-5.15.0-100-generic 			5.15.143
-    linux-image-5.15.0-101-generic 			5.15.143
-    linux-image-5.15.0-102-generic 			5.15.148
-    linux-image-5.15.0-105-generic 			5.15.148
-    linux-image-5.15.0-106-generic 			5.15.149
-    linux-image-5.15.0-107-generic 			5.15.149
-    linux-image-5.15.0-112-generic 			5.15.152
-    linux-image-5.15.0-113-generic 			5.15.152
-    linux-image-5.15.0-116-generic 			5.15.158
-    linux-image-5.15.0-117-generic 			5.15.158
-    linux-image-5.15.0-118-generic 			5.15.160
-    linux-image-5.15.0-119-generic 			5.15.160
-    linux-image-5.15.0-121-generic 			5.15.163
-    linux-image-5.15.0-122-generic 			5.15.163
-    linux-image-5.15.0-124-generic 			5.15.163
-    linux-image-5.15.0-125-generic 			5.15.167
-    linux-image-5.15.0-126-generic 			5.15.167
-    linux-image-5.15.0-127-generic 			5.15.168
-    linux-image-5.15.0-128-generic 			5.15.168
-    linux-image-5.15.0-130-generic 			5.15.168
-    linux-image-5.15.0-131-generic 			5.15.168
-    linux-image-5.15.0-133-generic 			5.15.173
-    linux-image-5.15.0-134-generic                  	5.15.173
-    linux-image-5.15.0-135-generic                  	5.15.178
-    linux-image-5.15.0-136-generic                  	5.15.178
-    linux-image-5.15.0-138-generic                  	5.15.178
-    linux-image-5.15.0-139-generic                  	5.15.178
-    linux-image-5.15.0-140-generic                  	5.15.179
-    linux-image-5.15.0-25-generic 			5.15.30
-    linux-image-5.15.0-43-generic 			5.15.39
-    linux-image-5.15.0-60-generic 			5.15.78
-    linux-image-5.15.0-72-generic 			5.15.98
-    linux-image-5.15.0-73-generic 			5.15.98
-    linux-image-5.15.0-75-generic 			5.15.99
-    linux-image-5.15.0-78-generic 			5.15.99
-    linux-image-5.15.0-79-generic 			5.15.111
-    linux-image-5.15.0-82-generic 			5.15.111
-    linux-image-5.15.0-83-generic 			5.15.116
-    linux-image-5.15.0-84-generic 			5.15.116
-    linux-image-5.15.0-86-generic 			5.15.122
-    linux-image-5.15.0-87-generic 			5.15.122
-    linux-image-5.15.0-88-generic 			5.15.126
-    linux-image-5.15.0-89-generic 			5.15.126
-    linux-image-5.15.0-91-generic 			5.15.131
-    linux-image-5.15.0-92-generic 			5.15.131
-    linux-image-5.15.0-94-generic 			5.15.136
-    linux-image-5.15.0-97-generic 			5.15.136
-    linux-image-5.19.0-41-generic 			5.19.17
-    linux-image-5.19.0-42-generic 			5.19.17
-    linux-image-5.19.0-43-generic 			5.19.17
-    linux-image-5.19.0-45-generic 			5.19.17
-    linux-image-5.19.0-46-generic 			5.19.17
-    linux-image-5.19.0-50-generic 			5.19.17
-    linux-image-6.2.0-25-generic 			6.2.13
-    linux-image-6.2.0-26-generic 			6.2.13
-    linux-image-6.2.0-31-generic 			6.2.15
-    linux-image-6.2.0-32-generic 			6.2.16
-    linux-image-6.2.0-33-generic 			6.2.16
-    linux-image-6.2.0-34-generic 			6.2.16
-    linux-image-6.2.0-35-generic 			6.2.16
-    linux-image-6.2.0-36-generic 			6.2.16
-    linux-image-6.2.0-37-generic 			6.2.16
-    linux-image-6.2.0-39-generic 			6.2.16
-    linux-image-6.5.0-14-generic 			6.5.3
-    linux-image-6.5.0-15-generic 			6.5.3
-    linux-image-6.5.0-17-generic 			6.5.8
-    linux-image-6.5.0-18-generic 			6.5.8
-    linux-image-6.5.0-21-generic 			6.5.8
-    linux-image-6.5.0-25-generic 			6.5.13
-    linux-image-6.5.0-26-generic 			6.5.13
-    linux-image-6.5.0-27-generic 			6.5.13
-    linux-image-6.5.0-28-generic 			6.5.13
-    linux-image-6.5.0-35-generic 			6.5.13
-    linux-image-6.5.0-41-generic 			6.5.13
-    linux-image-6.5.0-44-generic 			6.5.13
-    linux-image-6.5.0-45-generic 			6.5.13
-    linux-image-6.8.0-38-generic 			6.8.8
-    linux-image-6.8.0-39-generic 			6.8.8
-    linux-image-6.8.0-40-generic 			6.8.12
-    linux-image-6.8.0-45-generic 			6.8.12
-    linux-image-6.8.0-47-generic 			6.8.12
-    linux-image-6.8.0-48-generic 			6.8.12
-    linux-image-6.8.0-49-generic 			6.8.12
-    linux-image-6.8.0-50-generic 			6.8.12
-    linux-image-6.8.0-51-generic 			6.8.12
-    linux-image-6.8.0-52-generic 			6.8.12
-    linux-image-6.8.0-57-generic 			6.8.12
-    linux-image-6.8.0-58-generic 			6.8.12
-    linux-image-6.8.0-59-generic 			6.8.12
- 
-    2.  Ubuntu24.04 *generic类以下29个内核安装包                 内核版本
-    linux-image-6.8.0-31-generic     6.8.1
-    linux-image-6.8.0-35-generic     6.8.4
-    linux-image-6.8.0-36-generic     6.8.4
-    linux-image-6.8.0-38-generic     6.8.8 
-    linux-image-6.8.0-39-generic     6.8.8
-    linux-image-6.8.0-40-generic     6.8.12
-    linux-image-6.8.0-41-generic     6.8.12
-    linux-image-6.8.0-44-generic     6.8.12
-    linux-image-6.8.0-45-generic     6.8.12
-    linux-image-6.8.0-47-generic     6.8.12
-    linux-image-6.8.0-48-generic     6.8.12
-    linux-image-6.8.0-49-generic     6.8.12
-    linux-image-6.8.0-50-generic     6.8.12
-    linux-image-6.8.0-51-generic     6.8.12
-    linux-image-6.8.0-52-generic     6.8.12
-    linux-image-6.8.0-53-generic     6.8.12
-    linux-image-6.8.0-54-generic     6.8.12
-    linux-image-6.8.0-55-generic     6.8.12
-    linux-image-6.8.0-56-generic     6.8.12
-    linux-image-6.8.0-57-generic     6.8.12
-    linux-image-6.8.0-58-generic     6.8.12
-    linux-image-6.8.0-59-generic     6.8.12
-    linux-image-6.8.0-60-generic     6.8.12
-    linux-image-6.11.0-17-generic    6.11.11
-    linux-image-6.11.0-19-generic    6.11.11
-    linux-image-6.11.0-21-generic    6.11.11
-    linux-image-6.11.0-24-generic    6.11.11
-    linux-image-6.11.0-25-generic    6.11.11
-    linux-image-6.11.0-26-generic    6.11.11
+     支持Ubuntu22.04主流安装包中的内核, 包括最近发布的内核安装包中的内核。
+     详情请看 linux-image-generic.list 文件
 
 
 八：其他
