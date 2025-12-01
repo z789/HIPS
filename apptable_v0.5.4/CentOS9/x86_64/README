@@ -1,0 +1,251 @@
+
+
+      主机入侵防御系统（HIPS）apptable
+
+apptable是面向企业的Linux系统上的轻量级主机入侵防御系统(HIPS)。根据威胁情报或者用户自定义配置阻止已知（恶意）软件的执行，阻止（恶意）域名解析，阻止到（恶意）ip 的网络行为。从而阻止破坏系统和阻止数据泄露。
+其主要功能如下：
+1. 阻止恶意程序（病毒、木马等）和危险程序在系统上执行。
+2. 阻止恶意程序（病毒、木马等）和危险程序解析(恶意)域名。
+3. 阻止恶意程序（病毒、木马等）和危险程序发起网络连接、收发数据。
+4. 阻止对特定的（恶意）域名解析。
+5. 阻止向特定的（恶意）地址（ipv4和ipv6)发起网络连接、收发数据。
+6. 阻止特定端口的绑定
+
+一： 安装、升级和卸载
+   1：获取安装包。
+      1）从官方提供的地址下载安装包，并校验完整性。
+      2）从官方服务人员处获取定制的安装包，并校验完整性。
+
+      例如：获取的CentOS9系统上的安装包文件如下：
+      apptable_v0.5.4_el9_x86_64_e36f7bb_2025-11-27-09-50-54.tgz SHA1SUM
+
+      使用以下命令校验完整性：
+      sha1sum -c SHA1SUM
+      输出以下类似内容，即合法：
+      apptable_v0.5.4_el9_x86_64_e36f7bb_2025-11-27-09-50-54.tgz: 成功
+
+   2. 安装apptable
+
+      执行命令：
+      sudo tar -C / -zxvf  安装包
+      
+      例如：
+      sudo tar -C / -zxvf apptable_v0.5.4_el9_x86_64_e36f7bb_2025-11-27-09-50-54.tgz
+      执行完成后， 生成/opt/apptable目录，apptable所有的文件在该目录下。
+
+   3. 卸载apptable
+      删除 /opt/apptable目录即完全卸载apptable。
+
+      例如：
+      sudo rm -rf /opt/apptable
+
+   4. 升级apptable
+
+      先解压新安装包：
+      sudo tar -C / -zxvf  新安装包
+      然后重启apptable:
+      sudo /opt/apptable/restart.sh
+
+      
+      例如：
+      sudo tar -C / -zxvf apptable_v0.5.4_el9_x86_64_e36f7bb_2025-11-27-09-50-54.tgz
+      sudo /opt/apptable/restart.sh
+
+
+二： 启动、停止、重启 apptable
+     对apptable的所有操作都需要root权限。
+     
+   1. 启动
+     sudo /opt/apptable/start.sh
+
+     执行完毕后，执行以下命令查看启动的apptable进程。
+     ps -ef |grep apptable
+     显示如下输出，即为成功启动:
+
+   root       95019    2976  0 5月15 ?       00:00:00 /opt/apptable/apptable
+   root       95025    2976  0 5月15 ?       00:00:00 /opt/apptable/apptable_manager
+
+   2. 停止
+     sudo /opt/apptable/stop.sh
+     可用ps -ef |grep apptable 命令确认apptable相关的进程已经退出运行。
+
+   3. 重启
+     sudo /opt/apptable/restart.sh
+
+
+三： 配置文件介绍
+     配置文件都在 /opt/apptable/config/目录下。 进入该目录需要root权限。以下都以root权限进行操作。
+      
+    1. block_hash_list/usr_block_hash_list: 阻止的（恶意）软件的特征码文件。
+       其中usr_block_hash_list 可由用户自定义哪些需要阻止。该文件不受升级的影响。以下介绍的其他配置文件如有usr_*, 其含义类似。
+
+       该文件每一行由以下格式组成：
+       sha1sum:文件尺寸:其他信息:可选的其他信息等等
+
+       其中 sha1sum:文件尺寸 是必须的
+      
+       例如:
+       0025815c738c3da01d79db0b1d916fd5b5b31023:920568:na.zip:elf:application/x-executable:Prometei:2025-04-27T06:14:55
+
+       注意：该文件中不能有空格' '存在，如有，可用其他字符如'_'代替。
+
+
+    2. block_prog_list/usr_block_prog_list：阻止的（恶意）软件的绝对路径。
+       该文件每一行是一个程序的绝对路径。 如：
+       /usr/bin/nc
+       /usr/bin/sqlmap
+
+
+    3. block_url_list/usr_block_url_list：禁止解析的（恶意）域名文件。
+       该文件每一行是一个域名。 如：
+       j.foxnointel.ru
+       a.foxnointel.ru
+       LOADINGBOATS.DYN
+
+
+    4. block_ip_list/usr_block_ip_list：禁止连接、收发数据的（恶意）ip文件。
+       该文件每一行是一个ipv4或者ipv6地址 。 如：
+       104.131.68.180
+       2001:19f0:4400:2c64:5400:4ff:fe99:3781
+
+    5. block_port_list/usr_block_port_list：禁止绑定的高危端口文件。
+       该文件每一行是一个端口 。 如：
+       80
+       23
+       22
+
+   6. 主配置文件config.txt
+      改变该文件，如果要生效，需要重启apptable
+
+     其内容如下：
+     [global]
+     daemon = 1                ; Daemon mode. If daemon, must specify out_file
+     strict = 1                ; strict mode. If strict, block exec prog in block_hash_list and block_prog_list  
+     verbose = 1               ; Verbose output
+     quite = 0                 ; Quite mode, no output
+     out_file = /var/log/apptable.log      ; If daemon mode, out file
+
+
+     ; Interp interp_path1 ...
+     [interp]
+     ;If is relative path, relative apptable installed dir.
+     ;
+     ;Example:
+     ;      apptable intalled dir is /opt/apptable, interp_file is /opt/apptable/config/interp_name_list,
+     ;      [interp_file] item is ./config/interp_name_list or /opt/apptable/config/interp_name_list
+
+     interp_file = ./config/interp_name_list
+     usr_interp_file = ./config/usr_interp_name_list
+
+     ; Block program path ... 
+     [block_prog]
+     block_prog_file = ./config/block_prog_list
+     usr_block_prog_file = ./config/usr_block_prog_list
+
+     ; Block program hash path ... 
+     [block_hash]
+     block_hash_file = ./config/block_hash_list
+     usr_block_hash_file = ./config/usr_block_hash_list
+
+
+     ;Block domain name ... 
+     [block_url]
+     block_url_file = ./config/block_url_list
+     usr_block_url_file = ./config/usr_block_url_list
+
+
+     ;Block ipv4 and ipv6 ...
+     [block_ip]
+     block_ip_file = ./config/block_ip_list
+     usr_block_ip_file = ./config/usr_block_ip_list
+
+
+     [update]
+     enable = 1
+     interval = 86400 
+     update_server=https://apptable.com.cn:9999
+     cert_path=./config/apptable.crt
+     update_log = /var/log/apptable_manager.log 
+
+
+
+     该文件中大部分不需要改变。主要介绍下面配置项：
+     [global]
+     daemon = 1                ; 是否daemon启动
+     strict = 1                ; 严格模式 
+     verbose = 1               ; Verbose output
+     quite = 0                 ; 安静模式, 无输出 
+     out_file = /var/log/apptable.log      ; 日志文件。防御日志和其他日志都写入该文件。
+
+     [update]
+     enable = 1                ;是否启用更新官方的阻止库
+     interval = 86400          ;更新间隔。默认24小时，最小3分钟。每次启动三分钟后进行第一次更新。
+     update_server=https://apptable.com.cn:9999 ;更新服务器地址
+     cert_path=./config/apptable.crt            ;更新服务器证书
+     update_log = /var/log/apptable_manager.log 
+
+
+四: 两种模式介绍
+    严格模式(防御模式）： block_hash_list/usr_block_hash_list 、block_prog_list/usr_block_prog_list 中的（恶意）软件禁止执行。
+            这种模式在（恶意）软件执行前，进行阻止。防止破坏系统、泄漏信息等。
+
+    非严格模式(放数据泄漏模式）： block_hash_list/usr_block_hash_list 、block_prog_list/usr_block_prog_list 中的（恶意）软件允许执行。但禁止这四个文件中的（恶意）软件进行网络连接、收发数据、解析域名。
+            非严格模式，禁止所有的ip进行网络连接、收发数据、解析域名。不仅仅是block_ip_list/usr_block_ip_list、block_url_list/usr_block_url_list中配置的。
+
+    由主配置文件中配置项
+    [global]
+    strict = 1
+    控制
+
+
+五：官方更新服务和搭建私有更新服务器
+
+   1. 官方更新服务器每24小时，更新一次block_hash_list、block_prog_list、block_url_list、block_ip_list文件。
+   2. 官方更新的block_hash_list、block_prog_list、block_url_list、block_ip_list是最近14天的活跃的恶意软件、恶意域名、恶意ip的数据。
+      会根据需要调整时间阶段，如30天等。
+
+   3. 如果想搭建自己的更新服务器，可联系cfcjl@163.com。
+
+
+六：测试
+   1. 严格模式
+      1) 阻止block_hash_list/usr_block_hash_list中(恶意）软件执行。
+
+      2) 阻止block_prog_list/usr_block_prog_list中(恶意）软件执行。
+
+      3) 阻止block_url_list/usr_block_url_list中(恶意）域名解析。
+
+      4) 阻止block_ip_list/usr_block_ip_list中(恶意）网络连接、收发数据。
+
+   2. 非严格模式
+      1) 阻止block_hash_list/usr_block_hash_list中(恶意）软件进行任何域名解析、网络连接、收发数据 。
+
+      2) 阻止block_prog_list/usr_block_prog_list中(恶意）软件进行任何域名解析、网络连接、收发数据 。
+
+      3) 阻止block_url_list/usr_block_url_list中(恶意）域名解析。
+
+      4) 阻止block_ip_list/usr_block_ip_list中(恶意）网络连接、收发数据。
+     
+
+七： 支持的操作系统和内核版本
+     支持CentOS9主流安装包中的内核, 包括最近发布的内核安装包中的内核。
+     详情请看 linux-image-generic.list 文件
+
+
+八：其他
+    1. 如果不能运行，首先检查你的内核是否在支持的列表中
+       查看当前内核版本命令： 
+       uname -r
+
+    2. block_hash_list/usr_block_hash_list、 block_prog_list/usr_block_prog_list 一般用法和区别:
+	1) 格式不同: block_hash_list/usr_block_hash_list 是sha1sum:文件尺寸， block_prog_list/usr_block_prog_list是文件绝对路径。
+        2）一般情况下，（恶意）软件放在block_hash_list/usr_block_hash_list中。
+          用户禁止的程序，例如sqlmap、tcpdump等放在block_prog_list/usr_block_prog_list中。
+        3) block_prog_list/usr_block_prog_list中的不受程序版本不同(sha1sum值不同）的影响。
+    
+    3.  block_hash_list/usr_block_hash_list、block_prog_list/usr_block_prog_list、block_url_list/usr_block_url_list、block_ip_list/usr_block_ip_list 每个文件建议不超过2000行，总计不超过6000行
+
+    4. 性能
+       1) 负载类型不同，性能有差异。
+          nginx、sql数据库等服务，没有频繁的执行操作，性能影响几乎不计。
+          有频繁的程序执行操作，例如编译服务器，性能损失可达单核2%， 平均也几乎不计。
