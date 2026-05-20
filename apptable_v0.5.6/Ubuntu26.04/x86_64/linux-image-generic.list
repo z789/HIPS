@@ -1,0 +1,7 @@
+
+支持ubuntu26.04以下版本内核：v7.0.0
+
+ubuntu26.04 内核*-generic类安装包, 分别列出和对应的内核版本。
+安装包                          内核版本 
+linux-image-7.0.0-14-generic     7.0.0
+linux-image-7.0.0-15-generic     7.0.0

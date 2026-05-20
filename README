@@ -237,3 +237,9 @@ apptable是面向企业的Linux系统上的轻量级主机入侵防御系统(HIP
        1) 负载类型不同，性能有差异。
           nginx、sql数据库等服务，没有频繁的执行操作，性能影响几乎不计。
           有频繁的程序执行操作，例如编译服务器，性能损失可达单核2%， 平均也几乎不计。
+
+
+ChangeLog:
+    v0.5.4: https://mp.weixin.qq.com/s?__biz=Mzg3MzIxOTkwMg==&mid=2247483902&idx=1&sn=3aef52320822c5be91850dbdacffb412&chksm=cee213aff9959ab998abc80cdc973fdfe3e36ce76d4be305bd859da6080276342ff3543cc38a&token=74202800&lang=zh_CN#rd
+
+    v0.5.6: https://mp.weixin.qq.com/s/yH-olSg5Z0uEgvhRiRqrDw
