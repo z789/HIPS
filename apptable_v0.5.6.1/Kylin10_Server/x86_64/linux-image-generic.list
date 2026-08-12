@@ -3,6 +3,8 @@
 
 Kylin10 内核安装包, 分别列出和对应的内核版本。
 安装包                          内核版本 
+
+#KylinV10SP3
 kernel-core-4.19.90-89.11.v2401.ky10.x86_64 4.19.90  
 kernel-core-4.19.90-89.14.v2401.ky10.x86_64 4.19.90  
 kernel-core-4.19.90-89.15.v2401.ky10.x86_64 4.19.90  
@@ -76,3 +78,124 @@ kernel-core-4.19.90-52.62.v2207.ky10.x86_64 4.19.90
 kernel-core-4.19.90-52.63.v2207.ky10.x86_64 4.19.90  
 kernel-core-4.19.90-52.64.v2207.ky10.x86_64 4.19.90  
 kernel-core-4.19.90-52.65.v2207.ky10.x86_64 4.19.90  
+
+
+#KylinV10SP2
+kernel-core-4.19.90-24.4.v2101.ky10.x86_64 4.19.90 
+kernel-core-4.19.90-25.4.v2101.ky10.x86_64 4.19.90 
+kernel-core-4.19.90-25.5.v2101.ky10.x86_64 4.19.90 
+kernel-core-4.19.90-25.6.v2101.ky10.x86_64 4.19.90 
+kernel-core-4.19.90-25.7.v2101.ky10.x86_64 4.19.90 
+kernel-core-4.19.90-25.8.v2101.ky10.x86_64 4.19.90 
+kernel-core-4.19.90-25.9.v2101.ky10.x86_64 4.19.90 
+kernel-core-4.19.90-25.10.v2101.ky10.x86_64 4.19.90
+kernel-core-4.19.90-25.11.v2101.ky10.x86_64 4.19.90
+kernel-core-4.19.90-25.12.v2101.ky10.x86_64 4.19.90
+kernel-core-4.19.90-25.14.v2101.ky10.x86_64 4.19.90
+kernel-core-4.19.90-25.16.v2101.ky10.x86_64 4.19.90
+kernel-core-4.19.90-25.18.v2101.ky10.x86_64 4.19.90
+kernel-core-4.19.90-25.19.v2101.ky10.x86_64 4.19.90
+kernel-core-4.19.90-25.20.v2101.ky10.x86_64 4.19.90
+kernel-core-4.19.90-25.21.v2101.ky10.x86_64 4.19.90
+kernel-core-4.19.90-25.22.v2101.ky10.x86_64 4.19.90
+kernel-core-4.19.90-25.23.v2101.ky10.x86_64 4.19.90
+kernel-core-4.19.90-25.24.v2101.ky10.x86_64 4.19.90
+kernel-core-4.19.90-25.25.v2101.ky10.x86_64 4.19.90
+kernel-core-4.19.90-25.26.v2101.ky10.x86_64 4.19.90
+kernel-core-4.19.90-25.27.v2101.ky10.x86_64 4.19.90
+kernel-core-4.19.90-25.29.v2101.ky10.x86_64 4.19.90
+kernel-core-4.19.90-25.30.v2101.ky10.x86_64 4.19.90
+kernel-core-4.19.90-25.31.v2101.ky10.x86_64 4.19.90
+kernel-core-4.19.90-25.33.v2101.ky10.x86_64 4.19.90
+kernel-core-4.19.90-25.34.v2101.ky10.x86_64 4.19.90
+kernel-core-4.19.90-25.35.v2101.ky10.x86_64 4.19.90
+kernel-core-4.19.90-25.36.v2101.ky10.x86_64 4.19.90
+kernel-core-4.19.90-25.37.v2101.ky10.x86_64 4.19.90
+kernel-core-4.19.90-25.38.v2101.ky10.x86_64 4.19.90
+kernel-core-4.19.90-25.39.v2101.ky10.x86_64 4.19.90
+kernel-core-4.19.90-25.40.v2101.ky10.x86_64 4.19.90
+kernel-core-4.19.90-25.41.v2101.ky10.x86_64 4.19.90
+kernel-core-4.19.90-25.42.v2101.ky10.x86_64 4.19.90
+kernel-core-4.19.90-25.43.v2101.ky10.x86_64 4.19.90
+kernel-core-4.19.90-25.44.v2101.ky10.x86_64 4.19.90
+kernel-core-4.19.90-25.45.v2101.ky10.x86_64 4.19.90
+kernel-core-4.19.90-25.46.v2101.ky10.x86_64 4.19.90
+kernel-core-4.19.90-25.48.v2101.ky10.x86_64 4.19.90
+kernel-core-4.19.90-25.49.v2101.ky10.x86_64 4.19.90
+kernel-core-4.19.90-25.51.v2101.ky10.x86_64 4.19.90
+kernel-core-4.19.90-25.53.v2101.ky10.x86_64 4.19.90
+kernel-core-4.19.90-25.54.v2101.ky10.x86_64 4.19.90
+kernel-core-4.19.90-25.55.v2101.ky10.x86_64 4.19.90
+kernel-core-4.19.90-25.56.v2101.ky10.x86_64 4.19.90
+kernel-core-4.19.90-25.57.v2101.ky10.x86_64 4.19.90
+kernel-core-4.19.90-25.59.v2101.ky10.x86_64 4.19.90
+kernel-core-4.19.90-25.60.v2101.ky10.x86_64 4.19.90
+kernel-core-4.19.90-25.61.v2101.ky10.x86_64 4.19.90
+kernel-core-4.19.90-25.62.v2101.ky10.x86_64 4.19.90
+kernel-core-4.19.90-25.63.v2101.ky10.x86_64 4.19.90
+kernel-core-4.19.90-25.64.v2101.ky10.x86_64 4.19.90
+
+
+# KylinV10SP1
+#kernel-core-4.19.90-17.5.ky10.x86_64.rpm  暂时不支持
+#kernel-core-4.19.90-21.1.ky10.x86_64.rpm  暂时不支持
+#kernel-core-4.19.90-21.2.ky10.x86_64.rpm  暂时不支持
+kernel-core-4.19.90-21.7.ky10.x86_64.rpm
+kernel-core-4.19.90-23.8.v2101.ky10.x86_64.rpm
+kernel-core-4.19.90-23.9.v2101.ky10.x86_64.rpm
+kernel-core-4.19.90-23.13.v2101.ky10.x86_64.rpm
+kernel-core-4.19.90-23.14.v2101.ky10.x86_64.rpm
+kernel-core-4.19.90-23.15.v2101.ky10.x86_64.rpm
+kernel-core-4.19.90-23.16.v2101.ky10.x86_64.rpm
+kernel-core-4.19.90-23.17.v2101.ky10.x86_64.rpm
+kernel-core-4.19.90-23.18.v2101.ky10.x86_64.rpm
+kernel-core-4.19.90-23.19.v2101.ky10.x86_64.rpm
+kernel-core-4.19.90-23.20.v2101.ky10.x86_64.rpm
+kernel-core-4.19.90-23.21.v2101.ky10.x86_64.rpm
+kernel-core-4.19.90-23.22.v2101.ky10.x86_64.rpm
+kernel-core-4.19.90-23.23.v2101.ky10.x86_64.rpm
+kernel-core-4.19.90-23.24.v2101.ky10.x86_64.rpm
+kernel-core-4.19.90-23.25.v2101.ky10.x86_64.rpm
+kernel-core-4.19.90-23.26.v2101.ky10.x86_64.rpm
+kernel-core-4.19.90-23.27.v2101.ky10.x86_64.rpm
+kernel-core-4.19.90-23.28.v2101.ky10.x86_64.rpm
+kernel-core-4.19.90-23.29.v2101.ky10.x86_64.rpm
+kernel-core-4.19.90-23.30.v2101.ky10.x86_64.rpm
+kernel-core-4.19.90-23.31.v2101.ky10.x86_64.rpm
+kernel-core-4.19.90-23.32.v2101.ky10.x86_64.rpm
+kernel-core-4.19.90-23.33.v2101.ky10.x86_64.rpm
+kernel-core-4.19.90-23.34.v2101.ky10.x86_64.rpm
+kernel-core-4.19.90-23.35.v2101.ky10.x86_64.rpm
+kernel-core-4.19.90-23.37.v2101.ky10.x86_64.rpm
+kernel-core-4.19.90-23.38.v2101.ky10.x86_64.rpm
+kernel-core-4.19.90-23.40.v2101.ky10.x86_64.rpm
+kernel-core-4.19.90-23.41.v2101.ky10.x86_64.rpm
+kernel-core-4.19.90-23.42.v2101.ky10.x86_64.rpm
+kernel-core-4.19.90-23.43.v2101.ky10.x86_64.rpm
+kernel-core-4.19.90-23.44.v2101.ky10.x86_64.rpm
+kernel-core-4.19.90-23.45.v2101.ky10.x86_64.rpm
+kernel-core-4.19.90-23.46.v2101.ky10.x86_64.rpm
+kernel-core-4.19.90-23.48.v2101.ky10.x86_64.rpm
+kernel-core-4.19.90-23.49.v2101.ky10.x86_64.rpm
+kernel-core-4.19.90-23.50.v2101.ky10.x86_64.rpm
+kernel-core-4.19.90-23.51.v2101.ky10.x86_64.rpm
+kernel-core-4.19.90-23.52.v2101.ky10.x86_64.rpm
+kernel-core-4.19.90-23.53.v2101.ky10.x86_64.rpm
+kernel-core-4.19.90-23.54.v2101.ky10.x86_64.rpm
+kernel-core-4.19.90-23.56.v2101.ky10.x86_64.rpm
+kernel-core-4.19.90-23.57.v2101.ky10.x86_64.rpm
+kernel-core-4.19.90-23.59.v2101.ky10.x86_64.rpm
+kernel-core-4.19.90-23.60.v2101.ky10.x86_64.rpm
+kernel-core-4.19.90-23.61.v2101.ky10.x86_64.rpm
+kernel-core-4.19.90-23.62.v2101.ky10.x86_64.rpm
+kernel-core-4.19.90-23.63.v2101.ky10.x86_64.rpm
+kernel-core-4.19.90-23.64.v2101.ky10.x86_64.rpm
+kernel-core-4.19.90-23.65.v2101.ky10.x86_64.rpm
+kernel-core-4.19.90-23.67.v2101.ky10.x86_64.rpm
+kernel-core-4.19.90-23.68.v2101.ky10.x86_64.rpm
+kernel-core-4.19.90-23.69.v2101.ky10.x86_64.rpm
+kernel-core-4.19.90-23.70.v2101.ky10.x86_64.rpm
+kernel-core-4.19.90-23.71.v2101.ky10.x86_64.rpm
+kernel-core-4.19.90-23.72.v2101.ky10.x86_64.rpm
+kernel-core-4.19.90-23.73.v2101.ky10.x86_64.rpm
+kernel-core-4.19.90-23.74.v2101.ky10.x86_64.rpm
